@@ -4,8 +4,8 @@ const router = express.Router();
 const Comment = require("../models/Comment");
 const authService = require("../middlewares/authService");
 
-router.post("/new/post/:postId", async (req, res) => {
-    const {postId} = req.params;
+router.post("/new/post/:postId", authService.verifyToken, async (req, res) => {
+    const { postId } = req.params;
 
     try {
         const comment = Comment(req.body);
@@ -19,6 +19,7 @@ router.post("/new/post/:postId", async (req, res) => {
         return res.status(201).json({
             success: true,
             message: "Comment created successfully",
+            comment: comment,
         });
 
     } catch (err) {
@@ -44,6 +45,34 @@ router.post("/new/post/:postId", async (req, res) => {
             },
         });
 
+    }
+});
+
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const comment = await Comment.findById(id);
+
+        if (!comment) {
+            return res.status(404).json({
+                error: {
+                    code: "RESOURCE_NOT_FOUND",
+                    message: "Comment not found",
+                },
+            });
+        }
+
+        return res.status(200).json(comment);
+
+    } catch (err) {
+
+        return res.status(500).json({
+            error: {
+                code: "INTERNAL_SERVER_ERROR",
+                message: "An error occurred",
+            },
+        });
     }
 });
 
