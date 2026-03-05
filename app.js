@@ -4,23 +4,20 @@ const app = express();
 const mongoose = require("mongoose");
 
 const port = process.env.PORT || 3000;
-
-
 mongoose.connect(process.env.DATABASE_URL)
     .then(_result => {
-        console.log("connected to mongodb");
-    })
-    .catch(err => console.log(err));
-
+        console.log("Connected to mongodb");
+    }).catch(err => console.error(err));
 
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
+const postsRouter = require("./routes/posts");
 
 app.use(express.json());
 
-app.use("/", indexRouter);
-
-app.use("/auth", authRouter);
+app.use("/api", indexRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/posts", postsRouter);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
