@@ -16,7 +16,7 @@ const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/posts");
 const commentsRouter = require("./routes/comments");
 
-if (process.env.NODE_EN === "development") {
+if (process.env.NODE_ENV === "development") {
     app.use(logger("dev"));
 }
 
