@@ -15,7 +15,8 @@ const postSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        require: [true, "Status is required"],
+        enum: ["Publish", "Draft", "Lock", "Delete"],
+        required: [true, "Status is required"],
     },
     _userId: {
         type: Schema.Types.ObjectId,
