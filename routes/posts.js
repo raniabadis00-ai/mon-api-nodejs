@@ -76,7 +76,7 @@ router.post("/new", authService.verifyToken, async (req, res) => {
 
             return res.status(400).json({
                 error: {
-                    code: "Validation_ERROR",
+                    code: "VALIDATION_ERROR",
                     message: "Validation error",
                     validations: validations,
                 },

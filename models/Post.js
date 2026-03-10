@@ -5,12 +5,12 @@ const { Schema } = require("mongoose");
 const postSchema = new mongoose.Schema({
     title: {
         type: String,
-        require: [true, "Title is required"],
+        required: [true, "Title is required"],
         trim: true,
     },
     content: {
         type: String,
-        require: [true, "Email is required"],
+        required: [true, "Email is required"],
         trim: true,
     },
     status: {
