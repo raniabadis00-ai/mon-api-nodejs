@@ -10,6 +10,7 @@
 - [DOCUMENTATION TECHNIQUE][2]
 
 [1]: ./functional_documentation.md
+[1]: ./technical_documentation.md
 
 ## Description du projet
 Il s'agit d'une API REST pour la gestion centralisée d'un forum
@@ -63,30 +64,5 @@ Pour commencer à utiliser l'api, vous devez dans un premier temps cloner le ré
 ```BASH
 npm run start
 ```
-
-
-
-Date : 11/03/2026
-
-Statut :
-
-- [x] Brouillon
-- [ ] En validation
-- [ ] Validé
-
-## HISTORIQUE DES VERSIONS
-
-| Version   | Date       | Auteur      | Description         |
-|-----------|------------|-------------|---------------------|
-| v1.0      | 11/03/2026 | Badis Rania | Création de contenu |
-
-## 1. CONTEXT DU PROJET
-
-### 1.1 Présentation générale
-
-> Ce document décrit les spécifications fonctionnelles d'une API REST Stateless destinée à une gestion centralisée d'un forum.
-
-Dans un contexte de croissance et de diversification des canaux (application mobile, application web, interface)
-
 
 
